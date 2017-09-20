@@ -4,7 +4,6 @@ filetype off "Required by vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'valloric/youcompleteme'
 Plugin 'SuperTab'
 Plugin 'scrooloose/syntastic'
 Plugin 'leafgarland/typescript-vim'
@@ -19,17 +18,22 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'trevordmiller/nova-vim'
 Plugin 'jnwhiteh/vim-golang'
 Plugin 'kien/ctrlp.vim'
+Plugin 'adimit/prolog.vim'
 
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'tpope/vim-fugitive'
 Plugin 'L9'
+Plugin 'derekwyatt/vim-scala'
 
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 call vundle#end()
 filetype plugin indent on
 
+set hlsearch
+set ignorecase
+set smartcase
 set enc=utf-8
 set fileencoding=utf-8
 set laststatus=2
@@ -51,14 +55,15 @@ colorscheme solarized
 "colorscheme nova
 set expandtab
 set smartindent
-set softtabstop=4
-set shiftwidth=4
+set softtabstop=2
+set shiftwidth=2
 set mouse=a
 set backspace=indent,eol,start
 map <C-c> :NERDTreeToggle<CR>
 map <C-p> :CtrlP ./<CR>
 map <F7> :tabp<CR>
 map <F8> :tabn<CR>
+cmap w!! w !sudo tee % > /dev/null
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
